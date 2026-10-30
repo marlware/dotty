@@ -22,11 +22,18 @@ That's handy for lighting in games. The demo uses a flashlight and a wall to sho
 
 ## Why these technologies
 
-Each tool was picked for a reason. Here's what each one does for Dotty.
+- **C++17** is fast and common in game and graphics code
+- **CMake** builds the project on any computer
+- **A small library plus a demo** keeps the math reusable
 
-- **C++17** is fast, and it's what a lot of game and graphics code is written in, which is where vector math shows up most
-- **CMake** builds the project the same way on any computer
-- **A small library plus a separate demo** keeps the math reusable, and keeps the demo easy to change
+Here's how the pieces connect.
+
+```mermaid
+flowchart LR
+    Demo["Demo app: C++17"] --> Lib["dotty library: length, normalize, dot"]
+    CMake["CMake"] -.->|builds| Demo
+    CMake -.->|builds| Lib
+```
 
 ## Running it
 
