@@ -1,6 +1,6 @@
 // implements the math functions
 
-#include "include/Vector3.hpp"
+#include "Vector3.hpp"
 #include <cmath>
 
 namespace dotty {
