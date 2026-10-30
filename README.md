@@ -1,27 +1,59 @@
 # Dotty
-- A tiny dot product calculator in C++
 
-## Architecture
-- A Vector3 struct. A small data structure that holds `x`, `y`, and `z` floats.
-- A length function. A function using the Pythagorean theorem to find out how long a vector is.
-- A dot product function. A function that takes two Vector3 inputs, multiplies their coordinates, and returns a single float.
+Dot Product Calculator
 
-## Repo structrure
-dotty/<br>
-├── CMakeLists.txt        <-- The build instructions (Standard for C++)<br>
-├── include/              <-- Where your header files live<br>
-│   └── Vector3.hpp       <-- Declares your vector and math functions<br>
-├── src/                  <-- Where your actual logic lives<br>
-│   └── Vector3.cpp       <-- Implements the math functions<br>
-└── apps/                 <-- Where your runnable programs live<br>
-    └── main.cpp          <-- The "demo" that tests your code
+## What's going on here
 
-## How to run
-- Open terminal
-- Navigate to `dotty/` folder
-- Run commands:
-  - `mkdir build`
-  - `cd build`
-  - `cmake ..`
-  - `cmake --build .`
-  - `./dotty_app`
+Dotty is a tiny C++ program that does 3D vector math. A vector is just an arrow in space. The dot product of two arrows tells you how much they point the same way. If they point in the same direction, you get a big number. If they point at right angles, you get zero.
+
+That's handy for lighting in games. The demo uses a flashlight and a wall to show it.
+
+- The wall faces straight up
+- A flashlight pointing straight at it lights it up fully
+- A flashlight tilted halfway lights it more dimly
+- A flashlight pointing sideways doesn't light it at all
+
+## What's inside
+
+- A `Vector3` struct that holds three numbers, `x`, `y`, and `z`
+- A `length` function that finds how long a vector is, using the Pythagorean theorem in 3D
+- A `normalize` function that shrinks a vector to a length of exactly 1, and returns a zero vector instead of dividing by zero
+- A `dot` function that multiplies matching coordinates and adds them up
+
+## Running it
+
+You'll need a C++17 compiler and CMake. Then do this from the `dotty` folder.
+
+- Make a build folder with `mkdir build`
+- Move into it with `cd build`
+- Set things up with `cmake ..`
+- Compile with `cmake --build .`
+- Run the demo with `./dotty_app` (it's `dotty_app.exe` on Windows)
+
+You should see this output.
+
+```text
+Dotty math demo
+
+direct hit product: 1 (max brightness)
+glancing blow product: 0.707107 (dimmer light)
+total miss product: 0 (no light hits)
+```
+
+## Project layout
+
+```text
+dotty/
+├── CMakeLists.txt     the build instructions
+├── include/
+│   └── Vector3.hpp    declares the vector and the math functions
+├── src/
+│   └── Vector3.cpp    implements the math functions
+└── apps/
+    └── main.cpp       the flashlight demo
+```
+
+## Good to know
+
+- The math lives in a small library, `dotty_lib`, and the demo is a separate program that uses it
+- That means you could reuse the library in another project
