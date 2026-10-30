@@ -20,6 +20,14 @@ That's handy for lighting in games. The demo uses a flashlight and a wall to sho
 - A `normalize` function that shrinks a vector to a length of exactly 1, and returns a zero vector instead of dividing by zero
 - A `dot` function that multiplies matching coordinates and adds them up
 
+## Why these technologies
+
+Each tool was picked for a reason. Here's what each one does for Dotty.
+
+- **C++17** is fast, and it's what a lot of game and graphics code is written in, which is where vector math shows up most
+- **CMake** builds the project the same way on any computer
+- **A small library plus a separate demo** keeps the math reusable, and keeps the demo easy to change
+
 ## Running it
 
 You'll need a C++17 compiler and CMake. Then do this from the `dotty` folder.
