@@ -26,8 +26,6 @@ That's handy for lighting in games. The demo uses a flashlight and a wall to sho
 - **CMake** builds the project on any computer
 - **A small library plus a demo** keeps the math reusable
 
-Here's how the pieces connect.
-
 ```mermaid
 flowchart LR
     Demo["Demo app: C++17"] --> Lib["dotty library: length, normalize, dot"]
